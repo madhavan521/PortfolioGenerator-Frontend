@@ -1,0 +1,89 @@
+body{
+   background-color:rgb(247, 255, 255);
+   /* background-image: url('./Background/mainbackground.jpg');
+   background-size: cover; */
+  
+}
+.navbarbg{
+  /* background-color:rgb(96, 96, 96); */
+  border-radius: 10px;
+
+}
+.text-wrap {  
+  white-space: nowrap;       /* Prevent wrapping */  
+  overflow: hidden;          /* Hide overflow */  
+  text-overflow: ellipsis;   /* Show ellipsis for overflow content */  
+  display: block;            /* Ensure it behaves as a block-level element */  
+}  
+
+.parent-div {  
+  display: flex;             /* Use flexbox to align items */  
+  flex-wrap: wrap;          /* Allow wrapping if necessary */  
+}
+
+
+.card{
+  /* background-color:rgb(135, 135, 135); */
+}
+a{
+  text-decoration: none;
+}
+
+.fullscreen-loader {  
+  position: fixed;  
+  top: 0;  
+  left: 0;  
+  right: 0;  
+  bottom: 0;  
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */  
+  display: flex;  
+  justify-content: center;  
+  align-items: center;  
+  z-index: 999; /* Ensure it appears above other content */  
+}
+.coverImg{
+  text-shadow: 20px 20px 20px 20px black;
+}
+.design2background{
+  background-image: url('./Background/desin2background.jpg');
+  background-size: cover;
+}
+.personal{
+  background: #ebebeb;
+  border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+
+border: 1px solid rgba(223, 222, 222, 0.3);
+}
+.personalblack{
+  background-image:url('./Background/background4.jpg');
+  border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+
+border: 0px solid rgba(223, 222, 222, 0.3);
+
+}
+.personalblack1{
+  background:url('./Background/background.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+
+border: 0px solid rgba(223, 222, 222, 0.3);
+
+}
+.personalblack2{
+  background-image:url('./Background/desin2background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+
+border: 0px solid rgba(223, 222, 222, 0.3);
+
+}
+.design4{
+  background-image: url('./Background/background4.jpg');
+  background-size:100%;
+}

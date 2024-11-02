@@ -1,0 +1,104 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);  
+
+.cards {  
+    width: 80%;  
+    height: 60%;  
+    background: transparent;  
+    border: 2px solid #ccc;  
+    color: rgb(129, 124, 124);  
+    border-radius: 25px;  
+    margin-top: 35px;  
+    margin-bottom: 60px;  
+    transition: box-shadow 0.3s ease; /* Added transition for smoother hover effect */  
+}  
+
+.cards:hover {  
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);  
+}  
+
+.cards__thumb {  
+    height: 245px; /* Adjusted height for consistency */  
+    overflow: hidden;  
+    background-color: smokewhite;  
+    transition: height 0.5s;  
+}  
+
+.cards__thumb img {  
+    width: 100%; /* Adjusted width to show the image fully */  
+    height:190px; /* Ensure aspect ratio is maintained */  
+    display: block;  
+    opacity: 1;  
+    border-radius: 20px;  
+    margin: 10px auto;  
+    transition: opacity 0.5s, transform 0.5s;  
+}  
+
+.cards:hover .cards__thumb {  
+    height: 130px;  
+    border-radius: 30px;  
+}  
+
+.cards:hover .cards__thumb img {  
+    opacity: 0.6;  
+    transform: scale(1.2);  
+    border-radius: 20px;  
+}  
+
+.cards__body {  
+    position: relative;  
+    height: 185px;  
+    padding: 20px;  
+    transition: height 0.5s; /* Added transition for smoother hover effect */  
+}  
+
+.cards:hover .cards__body {  
+    height: 250px;  
+}  
+
+@media (max-width: 767px) {  
+    .cards:hover .cards__body {  
+        height: 600px; /* Set the height to 600px when on small devices */  
+    }  
+}  
+
+.cards__title {  
+    margin: 0;  
+    padding: 0 0 10px 0;  
+    color: rgb(173, 166, 166);  
+    font-size: 18px;  
+    font-weight: bold;  
+    text-transform: uppercase;  
+}  
+
+.cards__description {  
+    position: absolute;  
+    left: 20px;  
+    right: 20px;  
+    bottom: 56px;  
+    margin: 0;  
+    padding: 0;  
+    color: #666C74;  
+    line-height: 27px;  
+    opacity: 0;  
+    transform: translateY(45px);  
+    transition: opacity 0.3s, transform 0.3s;  
+}  
+
+.cards:hover .cards__description {  
+    opacity: 1;  
+    transform: translateY(0px);  
+    transition-delay: 0.2s;  
+}  
+
+.cards__footer {  
+    position: absolute;  
+    bottom: 12px;  
+    left: 20px;  
+    right: 20px;  
+    font-size: 11px;  
+    color: #A3A9A2;  
+}  
+
+.cards:hover .cards__title {  
+    display: none; /* Hides the title on hover */  
+}

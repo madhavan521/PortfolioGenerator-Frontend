@@ -1,0 +1,25 @@
+.demobackground {  
+    background-image: url("../Background/background.png");  
+    background-repeat: no-repeat;  
+    background-size: cover; /* or contain, depending on your needs */  
+    color:white;
+}  
+.nav-item{
+    margin-left: 20px;
+}
+.nav-a{
+        color: white;
+
+}
+strong,h5{
+    color:white
+}
+.inputs{
+    background: #7d7d7d;
+
+}
+
+.skillimg{
+    border-radius: 20px;
+    height: 120px;
+}
