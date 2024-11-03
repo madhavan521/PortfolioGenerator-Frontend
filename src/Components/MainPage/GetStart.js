@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BallTriangle } from 'react-loader-spinner';
-
+import{ UserContext} from "../../Context/UserContext"
+import {toast} from 'react-hot-toast'
 
 const GetStart = () => {
-
+   const {data}=useContext(UserContext)
   const [loading,setLoading]=useState(false)
   const navigate =useNavigate()
 
@@ -21,6 +22,7 @@ const GetStart = () => {
       }, 1000))
 
     }
+  
 
 
 
