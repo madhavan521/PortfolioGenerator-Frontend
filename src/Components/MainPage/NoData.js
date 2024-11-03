@@ -11,8 +11,8 @@ const handleReload=()=>{
   return (
     <div >
     <div className="row">
-    <p>After Entering The Data Please Reload</p>
-      <button className='btn btn-danger'onClick={handleReload} >Reload</button>
+    <p className="text-center">After Entering The Data Please Reload</p>
+      <button className='btn btn-danger'onClick={handleReload} style={{width:"150pc"}} >Reload</button>
     </div>
       <img src={nodata} alt="" style={{width:"100%"}} />
     </div>
