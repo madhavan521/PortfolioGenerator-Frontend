@@ -13,28 +13,28 @@ const portfolioData = [
     title: 'Design 1',  
     description: 'Single Page Portfolio With Black Background With Sliding Project Feature',  
     image: Project1, 
-    link:"design1" 
+    link:"demodesign1" 
   },  
   {  
     id: 2,  
     title: 'Design 2',  
     description: 'Single Page Portfolio With White Background',  
     image: Project2, 
-    link:"design2"
+    link:"demodesign2"
   },  
   {  
     id: 3,  
     title: 'Design 3',  
     description: 'Multiple Page Portfolio With Static Introduction page',  
     image: Project3,  
-    link:"design3"
+    link:"demodesign3"
   },   
   {  
     id: 4,  
     title: 'Design 4',  
     description: 'Multiple Page Portfolio With Black Background and Static Introduction page',  
     image: Project4, 
-    link:"design4" 
+    link:"demodesign4" 
   },  
   // {  
   //   id: 5,  
