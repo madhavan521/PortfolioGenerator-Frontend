@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BallTriangle } from 'react-loader-spinner';
-import{ UserContext} from "../../Context/UserContext"
+import { UserContext} from "../../Context/UserContext"
 import {toast} from 'react-hot-toast'
 
 const GetStart = () => {
