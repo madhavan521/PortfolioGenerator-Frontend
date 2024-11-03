@@ -11,10 +11,16 @@ const GetStart = () => {
 
   const handleCreation=()=>{
     setLoading(true)
-    setTimeout(() => {
+  data ?
+   ( setTimeout(() => {
       navigate('/introduction')
-    }, 2000);
-  }
+    }, 2000) ) :
+      (setTimeout(() => {
+        toast.success("Please Login First")
+        navigate('/login')
+      }, 1000))
+
+    }
 
 
 
