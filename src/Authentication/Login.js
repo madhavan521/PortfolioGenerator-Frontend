@@ -8,36 +8,41 @@ const Login = () => {
     const [password ,setPassword] = useState();
     const [loading,setLoading]=useState(false)
     const navigate =useNavigate()
-    const handleLogin=()=>{
-        const Logindata ={
-            username:username,
-            password:password,
-        }
-       fetch('https://portfolio-generator-backend.onrender.com/api/auth/login',
-        {
-            method:"POST",
-            headers:{
-                "Content-Type": "application/json"
-            },
-            credentials:'include', 
-            body:JSON.stringify(Logindata)
+    const handleLogin = () => {  
+    const Logindata = {  
+        username: username,  
+        password: password,  
+    };  
+    
+    fetch('https://portfolio-generator-backend.onrender.com/api/auth/login', {  
+        method: "POST",  
+        headers: {  
+            "Content-Type": "application/json"  
+        },  
+        credentials: 'include',  
+        body: JSON.stringify(Logindata)  
+    })  
+    .then(res => {  
+        if (!res.ok) {  
+            throw new Error('Login failed');  
+        }  
+        return res.json();  
+    })  
+    .then(result => {  
+        console.log(result);  
+        setLoading(true);  
+        toast.success("Login Successfully");  
+    })  
+    .catch(error => {  
+        console.error(error);  
+        toast.error("Login failed: " + error.message);  
+    });  
 
-        })
-        .then(res=>res.json())
-        .then(result=>{
-            console.log(result)
-            setLoading(true)
-
-            toast.success("Login Successfully");  
-
-        })
-        setTimeout(() => {
-            navigate('/')
-            window.location.reload()
-            
-        }, 1000);
-
-    }
+    setTimeout(() => {  
+        navigate('/');  
+        window.location.reload();  
+    }, 1000);  
+};
     
 
   return (
