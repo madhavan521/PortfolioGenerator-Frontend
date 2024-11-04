@@ -3,46 +3,43 @@ import { Link, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { BallTriangle } from 'react-loader-spinner';
 
-const Login = () => {
-    const [username,setUsername] = useState();
-    const [password ,setPassword] = useState();
-    const [loading,setLoading]=useState(false)
-    const navigate =useNavigate()
-    const handleLogin = () => {  
-    const Logindata = {  
-        username: username,  
-        password: password,  
-    };  
-    
-    fetch('https://portfolio-generator-backend.onrender.com/api/auth/login', {  
-        method: "POST",  
-        headers: {  
-            "Content-Type": "application/json"  
-        },  
-        credentials: 'include',  
-        body: JSON.stringify(Logindata)  
-    })  
-    .then(res => {  
-        if (!res.ok) {  
-            throw new Error('Login failed');  
-        }  
-        return res.json();  
-    })  
-    .then(result => {  
-        console.log(result);  
-        setLoading(true);  
-        toast.success("Login Successfully");  
-    })  
-    .catch(error => {  
-        console.error(error);  
-        toast.error("Login failed: " + error.message);  
-    });  
+const Login = () => {  
+    const [username, setUsername] = useState('');  
+    const [password, setPassword] = useState('');  
+    const [loading, setLoading] = useState(false);  
+    const navigate = useNavigate();  
 
-    setTimeout(() => {  
-        navigate('/');  
-        window.location.reload();  
-    }, 1000);  
-};
+    const handleLogin = async () => {  
+        setLoading(true);  
+        const Logindata = { username, password };  
+
+        try {  
+            const response = await fetch('https://portfolio-generator-backend.onrender.com/api/auth/login', {  
+                method: "POST",  
+                headers: {  
+                    "Content-Type": "application/json"  
+                },  
+                credentials: 'include',  
+                body: JSON.stringify(Logindata)  
+            });  
+
+            if (!response.ok) {  
+                const errorData = await response.json();  
+                throw new Error(errorData.message || 'Login failed');  
+            }  
+
+            const result = await response.json();  
+            toast.success("Login Successfully");  
+            setTimeout(() => {  
+                navigate('/');  
+                window.location.reload();  
+            }, 1000);  
+        } catch (error) {  
+            toast.error("Login failed: " + error.message);  
+        } finally {  
+            setLoading(false);  
+        }  
+    }; 
     
 
   return (
