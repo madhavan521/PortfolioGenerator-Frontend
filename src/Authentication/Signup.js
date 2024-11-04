@@ -2,47 +2,42 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast'
 
-const Signup = () => {
-    const [username,setUsername] = useState();
-    const [fullname,setFullname] = useState();
-    const [email,setEmail]=useState();
-    const [password ,setPassword] = useState();
-    const navigate =useNavigate()
-   const handleSignup = () => {  
-        const signupdata = {  
-            username: username,  
-            fullname: fullname,  
-            email: email,  
-            password: password,  
-        };  
+const Signup = () => {  
+    const [username, setUsername] = useState('');  
+    const [fullname, setFullname] = useState('');  
+    const [email, setEmail] = useState('');  
+    const [password, setPassword] = useState('');  
+    const [loading, setLoading] = useState(false);  
+    const navigate = useNavigate();  
 
-        fetch('https://portfolio-generator-backend.onrender.com/api/auth/signup', {  
-            method: "POST",  
-            headers: {  
-                "Content-Type": "application/json"  
-            },  
-            credentials: 'include',  
-            body: JSON.stringify(signupdata)  
-        })  
-        .then(res => {  
-            if (!res.ok) {  
-                throw new Error('Signup failed');  
+    const handleSignup = async () => {  
+        setLoading(true);  
+        const signupdata = { username, fullname, email, password };  
+
+        try {  
+            const response = await fetch('https://portfolio-generator-backend.onrender.com/api/auth/signup', {  
+                method: "POST",  
+                headers: {  
+                    "Content-Type": "application/json"  
+                },  
+                credentials: 'include',  
+                body: JSON.stringify(signupdata)  
+            });  
+
+            if (!response.ok) {  
+                const errorData = await response.json();  
+                throw new Error(errorData.message || 'Signup failed');  
             }  
-            return res.json();  
-        })  
-        .then(result => {  
-            console.log(result);  
-            toast.success("Account Created Successfully");  
-        })  
-        .catch(error => {  
-            console.error(error);  
-            toast.error("Signup failed: " + error.message);  
-        });  
 
-        setTimeout(() => {  
-            navigate('/login');  
-        }, 1500);  
-    }; 
+            const result = await response.json();  
+            toast.success("Account Created Successfully");  
+            setTimeout(() => navigate('/login'), 1500);  
+        } catch (error) {  
+            toast.error("Signup failed: " + error.message);  
+        } finally {  
+            setLoading(false);  
+        }  
+    };
     
 
   return (
