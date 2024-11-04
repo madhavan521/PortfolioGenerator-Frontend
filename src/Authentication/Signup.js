@@ -8,34 +8,41 @@ const Signup = () => {
     const [email,setEmail]=useState();
     const [password ,setPassword] = useState();
     const navigate =useNavigate()
-    const handleSignup=()=>{
-        const signupdata ={
-            username:username,
-            fullname:fullname,
-            email : email,
-            password:password,
-        }
-       fetch('https://portfolio-generator-backend.onrender.com/api/auth/signup',
-        {
-            method:"POST",
-            headers:{
-                "Content-Type": "application/json"
-            },
-            credentials:'include', 
-            body:JSON.stringify(signupdata)
+   const handleSignup = () => {  
+        const signupdata = {  
+            username: username,  
+            fullname: fullname,  
+            email: email,  
+            password: password,  
+        };  
 
-        })
-        .then(res=>res.json())
-        .then(result=>{
-            console.log(result)
-            toast.success("Account Created Sucessfully")
-            
-        })
-        setTimeout(() => {
-            navigate('/login')
-        }, 1500);
+        fetch('https://portfolio-generator-backend.onrender.com/api/auth/signup', {  
+            method: "POST",  
+            headers: {  
+                "Content-Type": "application/json"  
+            },  
+            credentials: 'include',  
+            body: JSON.stringify(signupdata)  
+        })  
+        .then(res => {  
+            if (!res.ok) {  
+                throw new Error('Signup failed');  
+            }  
+            return res.json();  
+        })  
+        .then(result => {  
+            console.log(result);  
+            toast.success("Account Created Successfully");  
+        })  
+        .catch(error => {  
+            console.error(error);  
+            toast.error("Signup failed: " + error.message);  
+        });  
 
-    }
+        setTimeout(() => {  
+            navigate('/login');  
+        }, 1500);  
+    }; 
     
 
   return (
